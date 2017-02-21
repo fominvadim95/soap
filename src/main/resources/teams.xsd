@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://entities.nure.ua" xmlns:tns="http://entities.nure.ua">
+
+    <!-- Soap requests, responses definition -->
+
+    <xs:complexType name="FindTeamRequest">
+        <xs:sequence>
+            <xs:element name="teamId" type="xs:ID"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="UpdateTeamRequest">
+        <xs:sequence>
+            <xs:element name="team" type="tns:Team"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="DeleteTeamRequest">
+        <xs:sequence>
+            <xs:element name="teamId" type="xs:ID"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="GetPlayersCountRequest">
+        <xs:sequence>
+            <xs:element name="teamId" type="xs:ID"/>
+        </xs:sequence>
+    </xs:complexType>
+
+
+    <xs:complexType name="GetPlayersCountResponse">
+        <xs:sequence>
+            <xs:element name="count" type="xs:int"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="FindTeamResponse">
+        <xs:sequence>
+            <xs:element name="team" type="tns:Team"/>
+        </xs:sequence>
+    </xs:complexType>
+
+
+    <xs:element name="findTeamRequest" type="tns:FindTeamRequest"/>
+
+    <xs:element name="updateTeamRequest" type="tns:UpdateTeamRequest"/>
+
+    <xs:element name="deleteTeamRequest" type="tns:DeleteTeamRequest"/>
+
+    <xs:element name="getPlayersCountRequest" type="tns:GetPlayersCountRequest"/>
+
+    <xs:element name="findTeamResponse" type="tns:FindTeamResponse"/>
+
+    <xs:element name="getPlayersCountResponse" type="tns:GetPlayersCountResponse"/>
+
+
+    <!-- Elements definition -->
+
+    <xs:simpleType name="PlayerAge">
+        <xs:restriction base="xs:integer">
+            <xs:minInclusive value="16"/>
+            <xs:maxInclusive value="45"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="CoachAge">
+        <xs:restriction base="xs:integer">
+            <xs:minInclusive value="20"/>
+            <xs:maxInclusive value="80"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="Experience">
+        <xs:restriction base="xs:integer">
+            <xs:minInclusive value="0"/>
+            <xs:maxInclusive value="40"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="Cost">
+        <xs:restriction base="xs:integer">
+            <xs:minInclusive value="0"/>
+            <xs:maxInclusive value="300"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="Position">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="CB"/>
+            <xs:enumeration value="FB"/>
+            <xs:enumeration value="CM"/>
+            <xs:enumeration value="FM"/>
+            <xs:enumeration value="F"/>
+            <xs:enumeration value="G"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="Year">
+        <xs:restriction base="xs:integer">
+            <xs:minInclusive value="1900"/>
+            <xs:maxInclusive value="2100"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="Capacity">
+        <xs:restriction base="xs:integer">
+            <xs:minInclusive value="1000"/>
+            <xs:maxInclusive value="200000"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:complexType name="Info">
+        <xs:sequence>
+            <xs:element name="name" type="xs:string"/>
+            <xs:element name="country" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="PlayerInfo">
+        <xs:complexContent>
+            <xs:extension base="tns:Info">
+                <xs:sequence>
+                    <xs:element name="age" type="tns:PlayerAge"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <xs:complexType name="CoachInfo">
+        <xs:complexContent>
+            <xs:extension base="tns:Info">
+                <xs:sequence>
+                    <xs:element name="age" type="tns:CoachAge"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <xs:complexType name="StadiumInfo">
+        <xs:complexContent>
+            <xs:extension base="tns:Info">
+                <xs:sequence>
+                    <xs:element name="city" type="xs:string"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <xs:complexType name="Player">
+        <xs:sequence>
+            <xs:element name="general" type="tns:PlayerInfo"/>
+            <xs:element name="cost" type="tns:Cost"/>
+            <xs:element name="position" type="tns:Position"/>
+        </xs:sequence>
+        <xs:attribute name="id" type="xs:ID" use="required"/>
+    </xs:complexType>
+
+    <xs:complexType name="Coach">
+        <xs:sequence>
+            <xs:element name="general" type="tns:CoachInfo"/>
+            <xs:element name="experience" type="tns:Experience"/>
+        </xs:sequence>
+        <xs:attribute name="id" type="xs:ID" use="required"/>
+    </xs:complexType>
+
+    <xs:complexType name="Sponsor">
+        <xs:sequence>
+            <xs:element name="general" type="tns:Info"/>
+            <xs:element name="year" type="tns:Year"/>
+        </xs:sequence>
+        <xs:attribute name="id" type="xs:ID" use="required"/>
+    </xs:complexType>
+
+    <xs:complexType name="Stadium">
+        <xs:sequence>
+            <xs:element name="general" type="tns:StadiumInfo"/>
+            <xs:element name="capacity" type="tns:Capacity"/>
+        </xs:sequence>
+        <xs:attribute name="id" type="xs:ID" use="required"/>
+    </xs:complexType>
+
+    <xs:complexType name="Players">
+        <xs:sequence>
+            <xs:element name="player" type="tns:Player" minOccurs="1"
+                        maxOccurs="11"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="Sponsors">
+        <xs:sequence>
+            <xs:element name="sponsor" type="tns:Sponsor" minOccurs="1"
+                        maxOccurs="25"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="Team">
+        <xs:sequence>
+            <xs:element name="general" type="tns:Info"/>
+            <xs:element name="players" type="tns:Players"/>
+            <xs:element name="coach" type="tns:Coach"/>
+            <xs:element name="sponsors" type="tns:Sponsors"/>
+            <xs:element name="stadium" type="tns:Stadium"/>
+        </xs:sequence>
+        <xs:attribute name="id" type="xs:ID" use="required"/>
+    </xs:complexType>
+
+    <xs:element name="teams">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="team" type="tns:Team" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+</xs:schema>
