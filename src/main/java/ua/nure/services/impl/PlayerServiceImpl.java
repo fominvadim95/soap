@@ -1,12 +1,14 @@
 package ua.nure.services.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import ua.nure.dao.PlayerDao;
 import ua.nure.dao.TeamDao;
 import ua.nure.entities.Player;
 import ua.nure.entities.Team;
 import ua.nure.services.PlayerService;
 
+@Service
 public class PlayerServiceImpl implements PlayerService {
 
     @Autowired

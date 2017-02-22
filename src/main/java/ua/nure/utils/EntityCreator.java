@@ -8,10 +8,11 @@ public class EntityCreator {
 
     private Teams teams = new Teams();
 
+    private Players players = new Players();
+
+
     public Teams createTeams() {
-        if (teams.getTeam().size() == 0) {
-            teams.getTeam().add(createTeam());
-        }
+        teams.getTeam().add(createTeam());
         return teams;
     }
 
@@ -68,41 +69,41 @@ public class EntityCreator {
     }
 
     public Players createPlayers() {
-        Players players = new Players();
+        if (players.getPlayer().size() == 0) {
 
-        Player player = new Player();
-        player.setId("p1");
-        PlayerInfo info = new PlayerInfo();
-        info.setAge(28);
-        info.setCountry("Portugal");
-        info.setName("Coentrao");
-        player.setGeneral(info);
-        player.setCost(40);
-        player.setPosition(Position.CB);
-        players.getPlayer().add(player);
+            Player player = new Player();
+            player.setId("p1");
+            PlayerInfo info = new PlayerInfo();
+            info.setAge(28);
+            info.setCountry("Portugal");
+            info.setName("Coentrao");
+            player.setGeneral(info);
+            player.setCost(40);
+            player.setPosition(Position.CB);
+            players.getPlayer().add(player);
 
-        player = new Player();
-        player.setId("p2");
-        info = new PlayerInfo();
-        info.setAge(32);
-        info.setCountry("Portugal");
-        info.setName("Ronaldo");
-        player.setGeneral(info);
-        player.setCost(110);
-        player.setPosition(Position.FM);
-        players.getPlayer().add(player);
+            player = new Player();
+            player.setId("p2");
+            info = new PlayerInfo();
+            info.setAge(32);
+            info.setCountry("Portugal");
+            info.setName("Ronaldo");
+            player.setGeneral(info);
+            player.setCost(110);
+            player.setPosition(Position.FM);
+            players.getPlayer().add(player);
 
-        player = new Player();
-        player.setId("p3");
-        info = new PlayerInfo();
-        info.setAge(28);
-        info.setCountry("Brazil");
-        info.setName("Marcelo");
-        player.setGeneral(info);
-        player.setCost(70);
-        player.setPosition(Position.CM);
-        players.getPlayer().add(player);
-
+            player = new Player();
+            player.setId("p3");
+            info = new PlayerInfo();
+            info.setAge(28);
+            info.setCountry("Brazil");
+            info.setName("Marcelo");
+            player.setGeneral(info);
+            player.setCost(70);
+            player.setPosition(Position.CM);
+            players.getPlayer().add(player);
+        }
         return players;
     }
 

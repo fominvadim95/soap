@@ -86,7 +86,7 @@
 
     <xs:element name="getPlayersCountResponse" type="tns:GetPlayersCountResponse"/>
 
-    <xs:element name="getMaxPlayerCostRequest" type="tns:GetMaxPlayerCostResponse"/>
+    <xs:element name="getMaxPlayerCostRequest" type="tns:GetMaxPlayerCostRequest"/>
 
     <xs:element name="getMaxPlayerCostResponse" type="tns:GetMaxPlayerCostResponse"/>
 
