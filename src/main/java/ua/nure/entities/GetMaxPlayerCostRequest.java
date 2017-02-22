@@ -10,7 +10,6 @@ package ua.nure.entities;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlID;
 import javax.xml.bind.annotation.XmlSchemaType;
@@ -20,19 +19,17 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 
 /**
- * <p>Java class for Sponsor complex type.
+ * <p>Java class for GetMaxPlayerCostRequest complex type.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType name="Sponsor">
+ * &lt;complexType name="GetMaxPlayerCostRequest">
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="general" type="{http://entities.nure.ua}Info"/>
- *         &lt;element name="year" type="{http://entities.nure.ua}Year"/>
+ *         &lt;element name="teamId" type="{http://www.w3.org/2001/XMLSchema}ID"/>
  *       &lt;/sequence>
- *       &lt;attribute name="id" use="required" type="{http://www.w3.org/2001/XMLSchema}ID" />
  *     &lt;/restriction>
  *   &lt;/complexContent>
  * &lt;/complexType>
@@ -41,83 +38,39 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "Sponsor", propOrder = {
-    "general",
-    "year"
+@XmlType(name = "GetMaxPlayerCostRequest", propOrder = {
+    "teamId"
 })
-public class Sponsor {
+public class GetMaxPlayerCostRequest {
 
     @XmlElement(required = true)
-    protected Info general;
-    protected int year;
-    @XmlAttribute(name = "id", required = true)
     @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
     @XmlID
     @XmlSchemaType(name = "ID")
-    protected String id;
+    protected String teamId;
 
     /**
-     * Gets the value of the general property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Info }
-     *     
-     */
-    public Info getGeneral() {
-        return general;
-    }
-
-    /**
-     * Sets the value of the general property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Info }
-     *     
-     */
-    public void setGeneral(Info value) {
-        this.general = value;
-    }
-
-    /**
-     * Gets the value of the year property.
-     * 
-     */
-    public int getYear() {
-        return year;
-    }
-
-    /**
-     * Sets the value of the year property.
-     * 
-     */
-    public void setYear(int value) {
-        this.year = value;
-    }
-
-    /**
-     * Gets the value of the id property.
+     * Gets the value of the teamId property.
      * 
      * @return
      *     possible object is
      *     {@link String }
      *     
      */
-    public String getId() {
-        return id;
+    public String getTeamId() {
+        return teamId;
     }
 
     /**
-     * Sets the value of the id property.
+     * Sets the value of the teamId property.
      * 
      * @param value
      *     allowed object is
      *     {@link String }
      *     
      */
-    public void setId(String value) {
-        this.id = value;
+    public void setTeamId(String value) {
+        this.teamId = value;
     }
 
 }

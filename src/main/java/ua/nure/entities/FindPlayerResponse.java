@@ -10,22 +10,23 @@ package ua.nure.entities;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java class for CoachInfo complex type.
+ * <p>Java class for FindPlayerResponse complex type.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType name="CoachInfo">
+ * &lt;complexType name="FindPlayerResponse">
  *   &lt;complexContent>
- *     &lt;extension base="{http://entities.nure.ua}Info">
+ *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="age" type="{http://entities.nure.ua}CoachAge"/>
+ *         &lt;element name="player" type="{http://entities.nure.ua}Player"/>
  *       &lt;/sequence>
- *     &lt;/extension>
+ *     &lt;/restriction>
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
@@ -33,29 +34,36 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "CoachInfo", propOrder = {
-    "age"
+@XmlType(name = "FindPlayerResponse", propOrder = {
+    "player"
 })
-public class CoachInfo
-    extends Info
-{
+public class FindPlayerResponse {
 
-    protected int age;
+    @XmlElement(required = true)
+    protected Player player;
 
     /**
-     * Gets the value of the age property.
+     * Gets the value of the player property.
      * 
+     * @return
+     *     possible object is
+     *     {@link Player }
+     *     
      */
-    public int getAge() {
-        return age;
+    public Player getPlayer() {
+        return player;
     }
 
     /**
-     * Sets the value of the age property.
+     * Sets the value of the player property.
      * 
+     * @param value
+     *     allowed object is
+     *     {@link Player }
+     *     
      */
-    public void setAge(int value) {
-        this.age = value;
+    public void setPlayer(Player value) {
+        this.player = value;
     }
 
 }

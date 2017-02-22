@@ -3,11 +3,13 @@ package ua.nure.dao.impl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import ua.nure.dao.TeamDao;
+import ua.nure.entities.Player;
 import ua.nure.entities.Team;
 import ua.nure.entities.Teams;
 import ua.nure.utils.EntityCreator;
 
 import javax.annotation.PostConstruct;
+import java.util.*;
 
 @Repository
 public class TeamDaoImpl implements TeamDao {
@@ -24,7 +26,6 @@ public class TeamDaoImpl implements TeamDao {
     public void init() {
         teams = entityCreator.createTeams();
     }
-
 
     @Override
     public void update(Team team) {
@@ -53,6 +54,14 @@ public class TeamDaoImpl implements TeamDao {
     @Override
     public int getPlayersCount(Team team) {
         return team.getPlayers().getPlayer().size();
+    }
+
+    @Override
+    public int getMaxPlayerCost(String id) {
+        Team team = find(id);
+        List<Player> players = team.getPlayers().getPlayer();
+        players.sort(Comparator.comparing(Player::getCost));
+        return players.get(0).getCost();
     }
 
     private int getIndex(Team team) {

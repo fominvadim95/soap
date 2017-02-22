@@ -1,6 +1,5 @@
 package ua.nure.configs;
 
-
 import org.springframework.web.WebApplicationInitializer;
 import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;
 import org.springframework.ws.transport.http.MessageDispatcherServlet;

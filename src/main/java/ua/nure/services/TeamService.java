@@ -1,8 +1,6 @@
 package ua.nure.services;
 
-
 import ua.nure.entities.Team;
-import ua.nure.entities.Teams;
 
 public interface TeamService {
 
@@ -13,5 +11,7 @@ public interface TeamService {
     Team find(String id);
 
     int getPlayersCount(Team team);
+
+    int getMaxPlayerCost(String id);
 
 }

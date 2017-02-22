@@ -10,6 +10,24 @@
         </xs:sequence>
     </xs:complexType>
 
+    <xs:complexType name="FindTeamResponse">
+        <xs:sequence>
+            <xs:element name="team" type="tns:Team"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="FindPlayerRequest">
+        <xs:sequence>
+            <xs:element name="playerId" type="xs:ID"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="FindPlayerResponse">
+        <xs:sequence>
+            <xs:element name="player" type="tns:Player"/>
+        </xs:sequence>
+    </xs:complexType>
+
     <xs:complexType name="UpdateTeamRequest">
         <xs:sequence>
             <xs:element name="team" type="tns:Team"/>
@@ -22,12 +40,17 @@
         </xs:sequence>
     </xs:complexType>
 
+    <xs:complexType name="DeletePlayerRequest">
+        <xs:sequence>
+            <xs:element name="playerId" type="xs:ID"/>
+        </xs:sequence>
+    </xs:complexType>
+
     <xs:complexType name="GetPlayersCountRequest">
         <xs:sequence>
             <xs:element name="teamId" type="xs:ID"/>
         </xs:sequence>
     </xs:complexType>
-
 
     <xs:complexType name="GetPlayersCountResponse">
         <xs:sequence>
@@ -35,14 +58,25 @@
         </xs:sequence>
     </xs:complexType>
 
-    <xs:complexType name="FindTeamResponse">
+    <xs:complexType name="GetMaxPlayerCostRequest">
         <xs:sequence>
-            <xs:element name="team" type="tns:Team"/>
+            <xs:element name="teamId" type="xs:ID"/>
         </xs:sequence>
     </xs:complexType>
 
+    <xs:complexType name="GetMaxPlayerCostResponse">
+        <xs:sequence>
+            <xs:element name="maxCost" type="xs:int"/>
+        </xs:sequence>
+    </xs:complexType>
 
     <xs:element name="findTeamRequest" type="tns:FindTeamRequest"/>
+
+    <xs:element name="findTeamResponse" type="tns:FindTeamResponse"/>
+
+    <xs:element name="findPlayerRequest" type="tns:FindPlayerRequest"/>
+
+    <xs:element name="findPlayerResponse" type="tns:FindPlayerRequest"/>
 
     <xs:element name="updateTeamRequest" type="tns:UpdateTeamRequest"/>
 
@@ -50,10 +84,13 @@
 
     <xs:element name="getPlayersCountRequest" type="tns:GetPlayersCountRequest"/>
 
-    <xs:element name="findTeamResponse" type="tns:FindTeamResponse"/>
-
     <xs:element name="getPlayersCountResponse" type="tns:GetPlayersCountResponse"/>
 
+    <xs:element name="getMaxPlayerCostRequest" type="tns:GetMaxPlayerCostResponse"/>
+
+    <xs:element name="getMaxPlayerCostResponse" type="tns:GetMaxPlayerCostResponse"/>
+
+    <xs:element name="deletePlayerRequest" type="tns:DeletePlayerRequest"/>
 
     <!-- Elements definition -->
 

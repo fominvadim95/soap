@@ -15,14 +15,6 @@ public class EntityCreator {
         return teams;
     }
 
-    public PlayerInfo createPlayerInfo() {
-        PlayerInfo info = new PlayerInfo();
-        info.setAge(32);
-        info.setCountry("Portugal");
-        info.setName("Ronaldo");
-        return info;
-    }
-
     public CoachInfo createCoachInfo() {
         CoachInfo info = new CoachInfo();
         info.setAge(44);
@@ -53,15 +45,6 @@ public class EntityCreator {
         return info;
     }
 
-    public Player createPlayer() {
-        Player player = new Player();
-        player.setId("p1");
-        player.setGeneral(createPlayerInfo());
-        player.setCost(150);
-        player.setPosition(Position.FB);
-        return player;
-    }
-
     public Coach createCoach() {
         Coach coach = new Coach();
         coach.setId("c1");
@@ -86,7 +69,40 @@ public class EntityCreator {
 
     public Players createPlayers() {
         Players players = new Players();
-        players.getPlayer().add(createPlayer());
+
+        Player player = new Player();
+        player.setId("p1");
+        PlayerInfo info = new PlayerInfo();
+        info.setAge(28);
+        info.setCountry("Portugal");
+        info.setName("Coentrao");
+        player.setGeneral(info);
+        player.setCost(40);
+        player.setPosition(Position.CB);
+        players.getPlayer().add(player);
+
+        player = new Player();
+        player.setId("p2");
+        info = new PlayerInfo();
+        info.setAge(32);
+        info.setCountry("Portugal");
+        info.setName("Ronaldo");
+        player.setGeneral(info);
+        player.setCost(110);
+        player.setPosition(Position.FM);
+        players.getPlayer().add(player);
+
+        player = new Player();
+        player.setId("p3");
+        info = new PlayerInfo();
+        info.setAge(28);
+        info.setCountry("Brazil");
+        info.setName("Marcelo");
+        player.setGeneral(info);
+        player.setCost(70);
+        player.setPosition(Position.CM);
+        players.getPlayer().add(player);
+
         return players;
     }
 
@@ -108,4 +124,5 @@ public class EntityCreator {
         team.setSponsors(createSponsors());
         return team;
     }
+
 }
