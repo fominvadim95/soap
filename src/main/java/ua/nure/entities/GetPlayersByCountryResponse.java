@@ -17,16 +17,16 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java class for Sponsors complex type.
+ * <p>Java class for GetPlayersByCountryResponse complex type.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType name="Sponsors">
+ * &lt;complexType name="GetPlayersByCountryResponse">
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="sponsor" type="{http://entities.nure.ua}Sponsor" maxOccurs="25"/>
+ *         &lt;element name="player" type="{http://entities.nure.ua}Player" maxOccurs="11"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -36,41 +36,41 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "Sponsors", propOrder = {
-    "sponsor"
+@XmlType(name = "GetPlayersByCountryResponse", propOrder = {
+    "player"
 })
-public class Sponsors {
+public class GetPlayersByCountryResponse {
 
     @XmlElement(required = true)
-    protected List<Sponsor> sponsor;
+    protected List<Player> player;
 
     /**
-     * Gets the value of the sponsor property.
+     * Gets the value of the player property.
      * 
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the sponsor property.
+     * This is why there is not a <CODE>set</CODE> method for the player property.
      * 
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
-     *    getSponsor().add(newItem);
+     *    getPlayer().add(newItem);
      * </pre>
      * 
      * 
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link Sponsor }
+     * {@link Player }
      * 
      * 
      */
-    public List<Sponsor> getSponsor() {
-        if (sponsor == null) {
-            sponsor = new ArrayList<Sponsor>();
+    public List<Player> getPlayer() {
+        if (player == null) {
+            player = new ArrayList<Player>();
         }
-        return this.sponsor;
+        return this.player;
     }
 
 }

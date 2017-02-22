@@ -8,8 +8,10 @@ import ua.nure.entities.Player;
 import ua.nure.entities.Team;
 import ua.nure.services.PlayerService;
 
+import java.util.List;
+
 @Service
-public class PlayerServiceImpl implements PlayerService {
+public class  PlayerServiceImpl implements PlayerService {
 
     @Autowired
     private PlayerDao playerDao;
@@ -25,5 +27,10 @@ public class PlayerServiceImpl implements PlayerService {
     @Override
     public void delete(Player player) {
         playerDao.delete(player);
+    }
+
+    @Override
+    public List<Player> getPlayersByCountry(String country) {
+        return playerDao.getPlayersByCountry(country);
     }
 }

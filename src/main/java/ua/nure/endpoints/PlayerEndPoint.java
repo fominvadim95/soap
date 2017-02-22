@@ -32,6 +32,16 @@ public class PlayerEndPoint {
         return new JAXBElement<>(QName.valueOf(FIND_PLAYER_RESPONSE), FindPlayerResponse.class, response);
     }
 
+    @PayloadRoot(namespace = NAMESPACE, localPart = GET_PLAYERS_BY_COUNTRY_REQUEST)
+    @ResponsePayload
+    public JAXBElement<GetPlayersByCountryResponse> getPlayersByCountry(
+            @RequestPayload JAXBElement<GetPlayersByCountryRequest> request) {
+        String country = request.getValue().getCountry();
+        GetPlayersByCountryResponse response = new GetPlayersByCountryResponse();
+        response.getPlayer().addAll(playerService.getPlayersByCountry(country));
+        return new JAXBElement<>(QName.valueOf(GET_PLAYERS_BY_COUNTRY_RESPONSE), GetPlayersByCountryResponse.class, response);
+    }
+
     @PayloadRoot(namespace = NAMESPACE, localPart = DELETE_PLAYER_REQUEST)
     @Oneway
     public void deletePlayer(@RequestPayload JAXBElement<DeletePlayerRequest> request) {

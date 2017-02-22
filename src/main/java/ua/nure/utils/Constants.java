@@ -32,6 +32,10 @@ public class Constants {
 
     public static final String GET_PLAYERS_COUNT_RESPONSE = "getPlayersCountResponse";
 
+    public static final String GET_PLAYERS_BY_COUNTRY_REQUEST = "getPlayersByCountryRequest";
+
+    public static final String GET_PLAYERS_BY_COUNTRY_RESPONSE = "getPlayersByCountryResponse";
+
     public static final String GET_MAX_PLAYER_COST_REQUEST = "getMaxPlayerCostRequest";
 
     public static final String GET_MAX_PLAYER_COST_RESPONSE = "getMaxPlayerCostResponse";

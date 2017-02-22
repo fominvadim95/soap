@@ -15,18 +15,18 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java class for StadiumInfo complex type.
+ * <p>Java class for GetPlayersByCountryRequest complex type.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType name="StadiumInfo">
+ * &lt;complexType name="GetPlayersByCountryRequest">
  *   &lt;complexContent>
- *     &lt;extension base="{http://entities.nure.ua}Info">
+ *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="city" type="{http://www.w3.org/2001/XMLSchema}string"/>
+ *         &lt;element name="country" type="{http://www.w3.org/2001/XMLSchema}string"/>
  *       &lt;/sequence>
- *     &lt;/extension>
+ *     &lt;/restriction>
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
@@ -34,38 +34,36 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "StadiumInfo", propOrder = {
-    "city"
+@XmlType(name = "GetPlayersByCountryRequest", propOrder = {
+    "country"
 })
-public class StadiumInfo
-    extends Info
-{
+public class GetPlayersByCountryRequest {
 
     @XmlElement(required = true)
-    protected String city;
+    protected String country;
 
     /**
-     * Gets the value of the city property.
+     * Gets the value of the country property.
      * 
      * @return
      *     possible object is
      *     {@link String }
      *     
      */
-    public String getCity() {
-        return city;
+    public String getCountry() {
+        return country;
     }
 
     /**
-     * Sets the value of the city property.
+     * Sets the value of the country property.
      * 
      * @param value
      *     allowed object is
      *     {@link String }
      *     
      */
-    public void setCity(String value) {
-        this.city = value;
+    public void setCountry(String value) {
+        this.country = value;
     }
 
 }

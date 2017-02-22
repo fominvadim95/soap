@@ -28,6 +28,18 @@
         </xs:sequence>
     </xs:complexType>
 
+    <xs:complexType name="GetPlayersByCountryRequest">
+        <xs:sequence>
+            <xs:element name="country" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="GetPlayersByCountryResponse">
+        <xs:sequence>
+            <xs:element name="player" type="tns:Player" maxOccurs="11"/>
+        </xs:sequence>
+    </xs:complexType>
+
     <xs:complexType name="UpdateTeamRequest">
         <xs:sequence>
             <xs:element name="team" type="tns:Team"/>
@@ -91,6 +103,10 @@
     <xs:element name="getMaxPlayerCostResponse" type="tns:GetMaxPlayerCostResponse"/>
 
     <xs:element name="deletePlayerRequest" type="tns:DeletePlayerRequest"/>
+
+    <xs:element name="getPlayersByCountryRequest" type="tns:GetPlayersByCountryRequest"/>
+
+    <xs:element name="getPlayersByCountryResponse" type="tns:GetPlayersByCountryResponse"/>
 
     <!-- Elements definition -->
 
