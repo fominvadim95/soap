@@ -10,6 +10,12 @@ public class EntityCreator {
 
     private Players players = new Players();
 
+    private Coach coach = new Coach();
+
+    private Sponsors sponsors = new Sponsors();
+
+    private Stadium stadium = new Stadium();
+
 
     public Teams createTeams() {
         teams.getTeam().add(createTeam());
@@ -47,24 +53,16 @@ public class EntityCreator {
     }
 
     public Coach createCoach() {
-        Coach coach = new Coach();
         coach.setId("c1");
         coach.setGeneral(createCoachInfo());
         coach.setExperience(7);
         return coach;
     }
 
-    public Sponsor createSponsor() {
-        Sponsor sponsor = new Sponsor();
-        sponsor.setId("sp1");
-        sponsor.setGeneral(createSponsorInfo());
-        sponsor.setYear(2020);
-        return sponsor;
-    }
-
     public Sponsors createSponsors() {
-        Sponsors sponsors = new Sponsors();
-        sponsors.getSponsor().add(createSponsor());
+        if (sponsors.getSponsor().size() == 0) {
+            sponsors.getSponsor().add(createSponsor());
+        }
         return sponsors;
     }
 
@@ -108,14 +106,21 @@ public class EntityCreator {
     }
 
     public Stadium createStadium() {
-        Stadium stadium = new Stadium();
         stadium.setId("st1");
         stadium.setGeneral(createStadiumInfo());
         stadium.setCapacity(81044);
         return stadium;
     }
 
-    public Team createTeam() {
+    private Sponsor createSponsor() {
+        Sponsor sponsor = new Sponsor();
+        sponsor.setId("sp1");
+        sponsor.setGeneral(createSponsorInfo());
+        sponsor.setYear(2020);
+        return sponsor;
+    }
+
+    private Team createTeam() {
         Team team = new Team();
         team.setId("t1");
         team.setGeneral(createTeamInfo());

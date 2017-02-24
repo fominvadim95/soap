@@ -22,17 +22,12 @@ public class Constants {
 
     public static final String FIND_TEAM_REQUEST = "findTeamRequest";
 
-    public static final String FIND_TEAM_RESPONSE = "findTeamResponse";
-
     public static final String FIND_PLAYER_REQUEST = "findPlayerRequest";
-
-    public static final String FIND_PLAYER_RESPONSE = "findPlayerResponse";
 
     public static final String GET_PLAYERS_COUNT_REQUEST = "getPlayersCountRequest";
 
-    public static final String GET_PLAYERS_COUNT_RESPONSE = "getPlayersCountResponse";
+    public static final String GET_PLAYERS_BY_COUNTRY_REQUEST = "getPlayersByCountryRequest";
 
     public static final String GET_MAX_PLAYER_COST_REQUEST = "getMaxPlayerCostRequest";
 
-    public static final String GET_MAX_PLAYER_COST_RESPONSE = "getMaxPlayerCostResponse";
 }

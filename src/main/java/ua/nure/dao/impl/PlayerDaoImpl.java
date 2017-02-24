@@ -8,6 +8,8 @@ import ua.nure.entities.Players;
 import ua.nure.utils.EntityCreator;
 
 import javax.annotation.PostConstruct;
+import java.util.ArrayList;
+import java.util.List;
 
 @Repository
 public class PlayerDaoImpl implements PlayerDao {
@@ -39,6 +41,17 @@ public class PlayerDaoImpl implements PlayerDao {
             }
         }
         return new Player();
+    }
+
+    @Override
+    public List<Player> getPlayersByCountry(String country) {
+        List<Player> result = new ArrayList<>();
+        for (int i = 0; i < players.getPlayer().size(); i++){
+            if (players.getPlayer().get(i).getGeneral().getCountry().equals(country)){
+                result.add(players.getPlayer().get(i));
+            }
+        }
+        return result;
     }
 
     private int getIndex(Player player) {
