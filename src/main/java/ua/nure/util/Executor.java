@@ -30,7 +30,8 @@ public class Executor {
         String country;
         String teamName;
 
-        while (true){
+        boolean exit = false;
+        while (!exit){
             printInfo();
             String operationName = sc.nextLine();
             System.out.println();
@@ -93,7 +94,8 @@ public class Executor {
                     System.out.println(client.findTeam(teamID));
                     break;
                 case "q":
-                    System.exit(1);
+                    exit = true;
+                    break;
                 default:
                     System.out.println("Unknown operation name");
                     break;
