@@ -61,7 +61,7 @@ public class TeamDaoImpl implements TeamDao {
         Team team = find(id);
         List<Player> players = team.getPlayers().getPlayer();
         players.sort(Comparator.comparing(Player::getCost));
-        return players.get(0).getCost();
+        return players.get(players.size() - 1).getCost();
     }
 
     private int getIndex(Team team) {
